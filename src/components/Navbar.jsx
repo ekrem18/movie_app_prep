@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import avatar from "../assets/icons/avatar.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -32,8 +32,8 @@ export default function Navbar() {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
+                      src={avatar}
+                      alt="user"
                     />
                   </Menu.Button>
                 </div>
@@ -56,7 +56,7 @@ export default function Navbar() {
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >
-                          Your Profile
+                          Register
                         </a>
                       )}
                     </Menu.Item>
@@ -69,7 +69,7 @@ export default function Navbar() {
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >
-                          Settings
+                          Login
                         </a>
                       )}
                     </Menu.Item>
@@ -82,7 +82,7 @@ export default function Navbar() {
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >
-                          Sign out
+                          Log out
                         </a>
                       )}
                     </Menu.Item>
@@ -93,6 +93,7 @@ export default function Navbar() {
           </div>
         </div>
       </Disclosure>
+      <div className="h-[55px]">      </div>
     </>
   );
 }
