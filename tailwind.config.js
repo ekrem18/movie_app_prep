@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  //? kendi theme ayarlarımızı eklemek için bu kısmı ekliyoruz
+ 
   theme: {
     
     extend: {
