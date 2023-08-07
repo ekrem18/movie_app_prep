@@ -10,18 +10,20 @@ function classNames(...classes) {
 export default function Navbar() {
   return (
     <>
-      <Disclosure as="nav" className="bg-neutral-100 dark:bg-gray-900 py-3 dark:text-white fixed top-0 z-20 w-full">
+      <Disclosure
+        as="nav"
+        className="bg-neutral-100 dark:bg-gray-900 py-3 dark:text-white fixed top-0 z-20 w-full"
+      >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-10 items-center justify-between">
-            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-              {/* Mobile menu button*/}
-             
-            </div>
            
+            <a className="pr-2 text-2xl font-semibold" href="#">React Movie App</a>
             
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-             
+            <div className="absolute inset-y-0 right-0 flex items-center ">
+              {/* Mobile menu button*/}
+            </div>
 
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">
                 <div>
