@@ -12,7 +12,7 @@ export default function Navbar() {
     <>
       <Disclosure
         as="nav"
-        className="bg-neutral-100 dark:bg-gray-900 py-3 dark:text-white fixed top-0 z-20 w-full"
+        className="bg-neutral-100 dark:bg-gray-900 py-2 dark:text-white fixed top-0 z-20 w-full"
       >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-10 items-center justify-between">
