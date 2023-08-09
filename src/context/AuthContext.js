@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import { auth } from "../auth/firebase";
-import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helpers/ToastNotify";
 
@@ -31,9 +31,14 @@ const AuthContextProvider = ({ children }) => {
     } catch (error) {
         
     }
+  };
+
+  const logOut = () => {
+    signOut(auth)
+    toastSuccessNotify("Logged Out Successfully!")
   }
 
-    const values={createUser, signIn}
+    const values={createUser, signIn, logOut}
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 //children In gelebilmesi için  AuthContext.Provider  ile sarmallama yapmamız gerekiyor. App js içierisnde bütün yapıyı kapsayan AppRouter ı kapsadığımız için children approuter olmuş oldu
