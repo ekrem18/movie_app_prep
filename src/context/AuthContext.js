@@ -21,19 +21,21 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   const createUser = async (email, password, displayName) => {
-    // yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
+    //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
     try {
       let userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
+      //? kullanıcı profilini güncellemek için kullanılan firebase metodu
       await updateProfile(auth.currentUser, {
-        displayName: displayName
-      })
-      console.log(userCredential);
+        //* key ve value değerleri aynı ise sadece key değerini yazabiliriz
+        displayName,
+      });
+      // console.log(userCredential);
       navigate("/");
-      toastSuccessNotify("Registered Successfully!");
+      toastSuccessNotify("Registered successfully!");
     } catch (error) {
       toastErrorNotify(error.message);
     }
@@ -41,20 +43,23 @@ const AuthContextProvider = ({ children }) => {
 
   const signIn = async (email, password) => {
     try {
+      //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
       let userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
-      console.log(userCredential);
       navigate("/");
-      toastSuccessNotify("Logged In Successfully!");
-    } catch (error) {}
+      toastSuccessNotify("Logged in successfully!");
+      console.log(userCredential);
+    } catch (error) {
+      toastErrorNotify(error.message);
+    }
   };
 
   const logOut = () => {
     signOut(auth);
-    toastSuccessNotify("Logged Out Successfully!");
+    toastSuccessNotify("Logged out successfully!");
   };
 
   const userObserver = () => {
@@ -71,7 +76,6 @@ const AuthContextProvider = ({ children }) => {
       }
     });
   };
-
   const values = { createUser, signIn, logOut, currentUser };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
