@@ -21,7 +21,7 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-10 items-center justify-between">
            
-            <Link className="pr-2 text-2xl font-semibold" to="#">React Movie App</Link>
+            <Link className="pr-2 text-2xl font-semibold" to="/">React Movie App</Link>
             
             <div className="absolute inset-y-0 right-0 flex items-center ">
 
