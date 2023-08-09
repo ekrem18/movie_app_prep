@@ -79,15 +79,21 @@ const AuthContextProvider = ({ children }) => {
     });
   };
 
-  const signUpProvider = ()=>{
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-  .then((result) => {
-    navigate("/")
-  }).catch((error) => {
+  const signUpProvider = () => {
     
-  });
-  } 
+    const provider = new GoogleAuthProvider();
+   
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+        navigate("/");
+      })
+      .catch((error) => {
+        
+        console.log(error);
+      });
+  };
+
 
   const values = { createUser, signIn, logOut, currentUser, signUpProvider };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
