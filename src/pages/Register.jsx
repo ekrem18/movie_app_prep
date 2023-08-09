@@ -5,14 +5,17 @@ import {AuthContext} from "../context/AuthContext"
 
 const Register = () => {
   const [name, setName] = useState("")
-  const [lastname, setLastname] = useState("")
+  const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const {createUser} = useContext(AuthContext)
 
   const handleSubmit=(e)=> {
     e.preventDefault()
+    const displayName = `${name} ${lastName} `;
+    createUser(email, password, displayName);
     createUser(email, password)
+
   }
   return (
     <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
@@ -41,7 +44,7 @@ const Register = () => {
               type="text"
               required
               placeholder=" "
-              onChange={(e)=>setLastname(e.target.value)}
+              onChange={(e)=>setLastName(e.target.value)}
             />
             <label htmlFor="floating_text">Last Name</label>
           </div>
