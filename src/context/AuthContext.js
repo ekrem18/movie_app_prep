@@ -60,7 +60,7 @@ const AuthContextProvider = ({ children }) => {
     });
   };
 
-    const values={createUser, signIn, logOut}
+    const values={createUser, signIn, logOut, currentUser}
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 //children In gelebilmesi için  AuthContext.Provider  ile sarmallama yapmamız gerekiyor. App js içierisnde bütün yapıyı kapsayan AppRouter ı kapsadığımız için children approuter olmuş oldu
