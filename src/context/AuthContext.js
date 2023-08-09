@@ -1,9 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../auth/firebase";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -21,14 +23,14 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   const createUser = async (email, password, displayName) => {
-    //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
+    
     try {
       let userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      //? kullanıcı profilini güncellemek için kullanılan firebase metodu
+      
       await updateProfile(auth.currentUser, {
         //* key ve value değerleri aynı ise sadece key değerini yazabiliriz
         displayName,
@@ -43,7 +45,7 @@ const AuthContextProvider = ({ children }) => {
 
   const signIn = async (email, password) => {
     try {
-      //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
+      
       let userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -63,7 +65,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const userObserver = () => {
-    //? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
+    
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const { email, displayName, photoURL } = user;
@@ -76,7 +78,18 @@ const AuthContextProvider = ({ children }) => {
       }
     });
   };
-  const values = { createUser, signIn, logOut, currentUser };
+
+  const signUpProvider = ()=>{
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    navigate("/")
+  }).catch((error) => {
+    
+  });
+  } 
+
+  const values = { createUser, signIn, logOut, currentUser, signUpProvider };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 //children In gelebilmesi için  AuthContext.Provider  ile sarmallama yapmamız gerekiyor. App js içierisnde bütün yapıyı kapsayan AppRouter ı kapsadığımız için children approuter olmuş oldu
