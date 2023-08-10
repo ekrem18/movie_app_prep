@@ -8,7 +8,7 @@ const Login = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const {signIn, signUpProvider} = useContext(AuthContext)
+  const {signIn, signUpProvider, forgotPassword} = useContext(AuthContext)
 
   const handleSubmit=(e)=> {
     e.preventDefault()
@@ -22,7 +22,7 @@ const Login = () => {
       >
         <form onSubmit={handleSubmit} className="absolute inset-[2px] rounded-[8px] bg-gray-100 dark:bg-[#28292d] z-[10] flex flex-col py-[50px] px-[40px]">
           <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
-            Sign Up
+            Sign In
           </h2>
         
           
@@ -47,7 +47,7 @@ const Login = () => {
             <label htmlFor="floating_password">Password</label>
           </div>
           <div className="flex justify-between">
-            <span
+            <span onClick={()=>forgotPassword(email)}
               
               className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
             >
