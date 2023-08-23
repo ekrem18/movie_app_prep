@@ -61,7 +61,7 @@ body {
   overflow: auto;
   max-height: 100%;
   padding: 1rem;
-  transform: translateX(100%);
+  transform: translateY(100%);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -117,3 +117,8 @@ body {
       transform: rotate(360deg);
   }
 }
+
+
+
+
+
