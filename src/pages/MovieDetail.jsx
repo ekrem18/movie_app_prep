@@ -37,9 +37,9 @@ const MovieDetail = () => {
   
 
   return <div className="md:container px-10 mx-auto py-5">
-  <h1 className="text-center text-white text-3xl">{title}</h1>
+  <h1 className="text-center text-yellow-500 text-4xl">{title}</h1>
   {videoKey && <VideoSection videoKey={videoKey} />}
-  <div className="md:container flex justify-center px-10">
+  <div className="md:container flex justify-center px-10 mt-10">
     <div className="flex flex-col lg:flex-row max-w-6xl rounded-lg bg-gray-100 shadow-lg">
       <img
         className=" lg:w-1/3 h-96 lg:h-[600px] object-cover rounded-t-lg md:rounded-none md:rounded-l-lg"

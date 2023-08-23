@@ -3,7 +3,7 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
-/** element bazında default olarak vermek istediğimiz stilleri base layer'da veriyoruz */
+
 @layer base {
   input {
     @apply block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-red-main appearance-none dark:text-white dark:border-red-main dark:focus:border-red-main focus:outline-none focus:ring-0 focus:border-red-main;
@@ -13,7 +13,7 @@
   }
 }
 
-/** component/class bazında default olarak vermek istediğimiz stilleri component layer'da veriyoruz */
+
 @layer components {
   .btn-danger {
     @apply focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 w-[300px] mt-[15px] dark:bg-red-main dark:hover:bg-red-700 dark:focus:ring-red-900;
@@ -36,7 +36,7 @@ body {
 .movie {
   background-color: #080f36;
   border-radius: 3px;
-  box-shadow: 4px 4px 5px rgba(63, 60, 60, 0.5);
+  box-shadow: 4px 4px 10px rgba(255, 187, 0, 0.877);
   overflow: hidden;
   margin: 1rem;
   width: 300px;
@@ -53,7 +53,7 @@ body {
 
 .movie-over {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 187, 0, 0.877);
   color: #000;
   bottom: 0;
   left: 0;
