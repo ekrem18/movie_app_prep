@@ -37,7 +37,7 @@
 <br>
 In the project directory, you can run:
 
-#### `pnpm dev`
+#### `yarn start`
 
 <h2>How does my project look</h2>
 
